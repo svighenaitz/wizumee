@@ -6,7 +6,7 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ children }) => {
     return (
-        <div className='grid gap-4 grid-cols-3 pb-10'>
+        <div className='flex flex-wrap gap-4 mb-10'>
             {children}
         </div>
     );

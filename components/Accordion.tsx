@@ -15,12 +15,13 @@ export default function Accordion({ title, children }: Props) {
     if (contentRef.current) {
       setContentHeight(`${contentRef.current.scrollHeight}px`)
     }
-  }, [showContent])
+  }, [showContent, children])
 
   return (
     <div className="mb-5 rounded-md border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
       <button
         role="button"
+        type='button'
         aria-expanded={showContent}
         style={{ borderBottom: showContent ? 'solid 2px' : '0px' }}
         className="flex w-full items-center justify-between rounded-[5px] border-black bg-[#bc95d4] p-5 font-bold"
