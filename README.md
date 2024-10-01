@@ -1,3 +1,4 @@
+![Wizumee](https://github.com/user-attachments/assets/f0488049-1c19-4847-bd80-db85cc49e1d5)
 # Wizumee • Resume Creator
 
 Wizumee is a personal web app built with **Next.js** and **TailwindCSS** that allows users to easily create and customize resumes. By filling out a simple form, users can preview the result in real-time and download the final document.
