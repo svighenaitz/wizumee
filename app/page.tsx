@@ -23,13 +23,63 @@ export default function Home() {
       email: 'john.developer@email.com',
       linkedin: 'https://linkedin.com/in/johndeveloper',
       github: 'https://github.com/johndeveloper',
-      basedIn: 'San Francisco, CA'
+      basedIn: 'San Francisco, CA',
+      workExperiences: [
+        {
+          companyName: 'Tech Solutions Inc.',
+          role: 'Senior Developer',
+          startYear: '2020',
+          endYear: '2023',
+          description: 'Led a team of 5 developers in building a cloud-based SaaS platform. Implemented microservices architecture and improved system performance by 40%. Mentored junior developers and introduced modern development practices.'
+        },
+        {
+          companyName: 'Digital Innovations Ltd.',
+          role: 'Full Stack Developer',
+          startYear: '2018',
+          endYear: '2020',
+          description: 'Developed and maintained multiple client-facing web applications using React and Node.js. Collaborated with UX team to implement responsive designs and improve user experience.'
+        }
+      ],
+      projects: [
+        {
+          projectName: 'E-commerce Platform',
+          role: 'Lead Developer',
+          startYear: '2022',
+          endYear: '2023',
+          description: 'Built a full-stack e-commerce platform using Next.js and Node.js. Implemented secure payment processing, real-time inventory management, and achieved 99.9% uptime.'
+        },
+        {
+          projectName: 'Mobile Analytics Dashboard',
+          role: 'Full Stack Developer',
+          startYear: '2021',
+          endYear: '2022',
+          description: 'Developed a responsive analytics dashboard that processes real-time data from multiple sources. Integrated data visualization libraries and implemented caching for improved performance.'
+        }
+      ],
+      education: [
+        {
+          instituteName: 'University of Technology',
+          degreeType: 'Bachelor of Science in Computer Science',
+          year: '2018',
+          grade: '3.8 GPA'
+        },
+        {
+          instituteName: 'Tech Institute',
+          degreeType: 'Master of Computer Science',
+          year: '2020',
+          grade: '3.9 GPA'
+        }
+      ]
     },
   });
   
   const { handleSubmit, control, setValue, getValues, watch } = methods;
   const watchTagInsert = watch("tags") as string[];
   
+  const [experienceCount, setExperienceCount] = useState(2);
+  const [projectCount, setProjectCount] = useState(2);
+  const [educationCount, setEducationCount] = useState(2);
+
   const onSubmit = (data: any) => {
     console.log({ data }); // You can do something with the submitted data here
   };
@@ -48,6 +98,18 @@ export default function Home() {
       setValue("tags", newTags);
       setValue("tag", "");
     }
+  };
+
+  const addNewExperience = () => {
+    setExperienceCount(prev => prev + 1);
+  };
+
+  const addNewProject = () => {
+    setProjectCount(prev => prev + 1);
+  };
+
+  const addNewEducation = () => {
+    setEducationCount(prev => prev + 1);
   };
 
   return (
@@ -82,9 +144,135 @@ export default function Home() {
                   <DraggableTags tags={localTags} onReorder={handleSkillsReorder} />
                 </div>
                 <div className='mb-10'>
-                  <Accordion title='Work Experience'> </Accordion>
-                  <Accordion title='Projects'>  </Accordion>
-                  <Accordion title='Education'>  </Accordion>
+                  <Accordion title='Work Experience'>
+                    <div className="pb-14">
+                      {[...Array(experienceCount)].map((_, index) => (
+                        <div key={index} className='mb-6 p-4 border-b border-gray-200'>
+                          <h3 className="w-full font-semibold mb-4">Experience {index + 1}</h3>
+                          <div className='flex flex-wrap gap-4 mb-4'>
+                            <Input 
+                              label="Company name" 
+                              name={`workExperiences.${index}.companyName`} 
+                            />
+                            <Input 
+                              label="Role" 
+                              name={`workExperiences.${index}.role`} 
+                            />
+                            <Input 
+                              label="Start year" 
+                              name={`workExperiences.${index}.startYear`} 
+                              type="number" 
+                              placeholder="YYYY"
+                            />
+                            <Input 
+                              label="End year" 
+                              name={`workExperiences.${index}.endYear`} 
+                              type="number" 
+                              placeholder="YYYY"
+                            />
+                          </div>
+                          <Input 
+                            label="Description" 
+                            name={`workExperiences.${index}.description`} 
+                            as="textarea"
+                            className="w-full min-h-[100px] rounded-md border-2 border-black p-[10px] font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all focus:translate-x-[3px] focus:translate-y-[3px] focus:shadow-none"
+                            placeholder="Describe your responsibilities and achievements..."
+                          />
+                        </div>
+                      ))}
+                      <Button 
+                        type="button" 
+                        onClick={addNewExperience}
+                        className="mt-4 absolute bottom-4 right-4"
+                      >
+                        Add Another Experience
+                      </Button>
+                    </div>
+                  </Accordion>
+                  <Accordion title='Projects'>
+                    <div className="pb-14">
+                      {[...Array(projectCount)].map((_, index) => (
+                        <div key={index} className='mb-6 p-4 border-b border-gray-200'>
+                          <h3 className="w-full font-semibold mb-4">Project {index + 1}</h3>
+                          <div className='flex flex-wrap gap-4 mb-4'>
+                            <Input 
+                              label="Project name" 
+                              name={`projects.${index}.projectName`} 
+                            />
+                            <Input 
+                              label="Role" 
+                              name={`projects.${index}.role`} 
+                            />
+                            <Input 
+                              label="Start year" 
+                              name={`projects.${index}.startYear`} 
+                              type="number" 
+                              placeholder="YYYY"
+                            />
+                            <Input 
+                              label="End year" 
+                              name={`projects.${index}.endYear`} 
+                              type="number" 
+                              placeholder="YYYY"
+                            />
+                          </div>
+                          <Input 
+                            label="Description" 
+                            name={`projects.${index}.description`} 
+                            as="textarea"
+                            className="w-full min-h-[100px] rounded-md border-2 border-black p-[10px] font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all focus:translate-x-[3px] focus:translate-y-[3px] focus:shadow-none"
+                            placeholder="Describe the project, technologies used, and your achievements..."
+                          />
+                        </div>
+                      ))}
+                      <Button 
+                        type="button" 
+                        onClick={addNewProject}
+                        className="mt-4 absolute bottom-4 right-4"
+                      >
+                        Add Another Project
+                      </Button>
+                    </div>
+                  </Accordion>
+                  <Accordion title='Education'>
+                    <div className="pb-14">
+                      {[...Array(educationCount)].map((_, index) => (
+                        <div key={index} className='mb-6 p-4 border-b border-gray-200'>
+                          <h3 className="w-full font-semibold mb-4">Education {index + 1}</h3>
+                          <div className='flex flex-wrap gap-4 mb-4'>
+                            <Input 
+                              label="Name of Institute" 
+                              name={`education.${index}.instituteName`} 
+                              placeholder="University or College name"
+                            />
+                            <Input 
+                              label="Type of Degree" 
+                              name={`education.${index}.degreeType`} 
+                              placeholder="e.g., Bachelor of Science, Master's"
+                            />
+                            <Input 
+                              label="Year" 
+                              name={`education.${index}.year`} 
+                              type="number"
+                              placeholder="YYYY"
+                            />
+                            <Input 
+                              label="Grade" 
+                              name={`education.${index}.grade`} 
+                              placeholder="e.g., 3.8 GPA, First Class"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                      <Button 
+                        type="button" 
+                        onClick={addNewEducation}
+                        className="mt-4 absolute bottom-4 right-4"
+                      >
+                        Add Another Education
+                      </Button>
+                    </div>
+                  </Accordion>
                 </div>
                 <div>
                   <Button type="submit">Download</Button>
