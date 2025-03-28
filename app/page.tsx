@@ -9,6 +9,7 @@ import Section from '@/components/Section';
 import DraggableTags from '@/components/DraggableTags';
 import { useForm, FormProvider, Controller } from "react-hook-form";
 import { StrictMode, useState } from 'react';
+import ResumePreview from '@/components/ResumePreview';
 
 export default function Home() {
   const [localTags, setLocalTags] = useState<string[]>(["ciao", "come", "va"]);
@@ -120,8 +121,8 @@ export default function Home() {
           <div className='mx-8 text-xl font-semibold'>Wizumee</div>
         </nav>
         <main className="min-h-screen grid grid-cols-2" >
-          <div className='bg-[#c9dcd8] p-10'>
-            <FormProvider {...methods}>
+          <FormProvider {...methods}>
+            <div className='bg-[#c9dcd8] p-10'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <Section>
                   <Input label="Full Name" name="fullName" />
@@ -278,11 +279,11 @@ export default function Home() {
                   <Button type="submit">Download</Button>
                 </div>
               </form>
-            </FormProvider>
-          </div>
-          <div className='p-10'>
-            <DocxRenderer />
-          </div>
+            </div>
+            <div className='p-10'>
+              <ResumePreview />
+            </div>
+          </FormProvider>
         </main>
       </div>
     </StrictMode>
