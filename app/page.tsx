@@ -17,7 +17,13 @@ export default function Home() {
     defaultValues: {
       tags: localTags,
       phone: "123456",
-      tag: ''
+      tag: '',
+      fullName: 'John Developer',
+      role: 'Full Stack Developer',
+      email: 'john.developer@email.com',
+      linkedin: 'https://linkedin.com/in/johndeveloper',
+      github: 'https://github.com/johndeveloper',
+      basedIn: 'San Francisco, CA'
     },
   });
   
@@ -47,9 +53,9 @@ export default function Home() {
   return (
     <StrictMode>
       <div>
-        <nav className='left-0 top-0 z-10 mx-auto flex h-20 w-full items-center border-b-4 border-black bg-white px-5 m500:h-16'>
+        <nav className='left-0 top-0 z-10 mx-auto flex h-20 w-full items-center border-b-4 border-black bg-white py-16 px-8 m500:h-16'>
           <Avatar imageUrl='/icons/android-chrome-192x192.png' />
-          <span className='mx-5'>Wizumee</span>
+          <div className='mx-8 text-xl font-semibold'>Wizumee</div>
         </nav>
         <main className="min-h-screen grid grid-cols-2" >
           <div className='bg-[#c9dcd8] p-10'>
