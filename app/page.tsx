@@ -4,12 +4,12 @@ import Accordion from '@/components/Accordion';
 import Avatar from '@/components/Avatar';
 import Button from '@/components/Button';
 import Input from '@/components/Input'
-import DocxRenderer from '@/components/MyDoc';
 import Section from '@/components/Section';
 import DraggableTags from '@/components/DraggableTags';
 import { useForm, FormProvider, Controller } from "react-hook-form";
 import { StrictMode, useState } from 'react';
 import ResumePreview from '@/components/ResumePreview';
+import DraggableSection from '@/components/DraggableSection';
 
 export default function Home() {
   const [localTags, setLocalTags] = useState<string[]>(["ciao", "come", "va"]);
@@ -27,6 +27,7 @@ export default function Home() {
       basedIn: 'San Francisco, CA',
       workExperiences: [
         {
+          id: '1',
           companyName: 'Tech Solutions Inc.',
           role: 'Senior Developer',
           startYear: '2020',
@@ -34,6 +35,7 @@ export default function Home() {
           description: 'Led a team of 5 developers in building a cloud-based SaaS platform. Implemented microservices architecture and improved system performance by 40%. Mentored junior developers and introduced modern development practices.'
         },
         {
+          id: '2',
           companyName: 'Digital Innovations Ltd.',
           role: 'Full Stack Developer',
           startYear: '2018',
@@ -43,6 +45,7 @@ export default function Home() {
       ],
       projects: [
         {
+          id: '1',
           projectName: 'E-commerce Platform',
           role: 'Lead Developer',
           startYear: '2022',
@@ -50,6 +53,7 @@ export default function Home() {
           description: 'Built a full-stack e-commerce platform using Next.js and Node.js. Implemented secure payment processing, real-time inventory management, and achieved 99.9% uptime.'
         },
         {
+          id: '2',
           projectName: 'Mobile Analytics Dashboard',
           role: 'Full Stack Developer',
           startYear: '2021',
@@ -59,12 +63,14 @@ export default function Home() {
       ],
       education: [
         {
+          id: '1',
           instituteName: 'University of Technology',
           degreeType: 'Bachelor of Science in Computer Science',
           year: '2018',
           grade: '3.8 GPA'
         },
         {
+          id: '2',
           instituteName: 'Tech Institute',
           degreeType: 'Master of Computer Science',
           year: '2020',
@@ -102,16 +108,156 @@ export default function Home() {
   };
 
   const addNewExperience = () => {
+    const experiences = getValues("workExperiences");
+    const newExperience = {
+      id: String(experiences.length + 1),
+      companyName: '',
+      role: '',
+      startYear: '',
+      endYear: '',
+      description: ''
+    };
+    setValue("workExperiences", [...experiences, newExperience]);
     setExperienceCount(prev => prev + 1);
   };
 
   const addNewProject = () => {
+    const projects = getValues("projects");
+    const newProject = {
+      id: String(projects.length + 1),
+      projectName: '',
+      role: '',
+      startYear: '',
+      endYear: '',
+      description: ''
+    };
+    setValue("projects", [...projects, newProject]);
     setProjectCount(prev => prev + 1);
   };
 
   const addNewEducation = () => {
+    const education = getValues("education");
+    const newEducation = {
+      id: String(education.length + 1),
+      instituteName: '',
+      degreeType: '',
+      year: '',
+      grade: ''
+    };
+    setValue("education", [...education, newEducation]);
     setEducationCount(prev => prev + 1);
   };
+
+  const handleExperiencesReorder = (newExperiences: any[]) => {
+    setValue("workExperiences", newExperiences);
+  };
+
+  const handleProjectsReorder = (newProjects: any[]) => {
+    setValue("projects", newProjects);
+  };
+
+  const handleEducationReorder = (newEducation: any[]) => {
+    setValue("education", newEducation);
+  };
+
+  const renderExperience = (experience: any, index: number) => (
+    <div className='mb-6 p-4 border-b border-gray-200 pl-8'>
+      <h3 className="w-full font-semibold mb-4">Experience {index + 1}</h3>
+      <div className='flex flex-wrap gap-4 mb-4'>
+        <Input 
+          label="Company name" 
+          name={`workExperiences.${index}.companyName`} 
+        />
+        <Input 
+          label="Role" 
+          name={`workExperiences.${index}.role`} 
+        />
+        <Input 
+          label="Start year" 
+          name={`workExperiences.${index}.startYear`} 
+          type="number" 
+          placeholder="YYYY"
+        />
+        <Input 
+          label="End year" 
+          name={`workExperiences.${index}.endYear`} 
+          type="number" 
+          placeholder="YYYY"
+        />
+      </div>
+      <Input 
+        label="Description" 
+        name={`workExperiences.${index}.description`} 
+        as="textarea"
+        className="w-full min-h-[100px] rounded-md border-2 border-black p-[10px] font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all focus:translate-x-[3px] focus:translate-y-[3px] focus:shadow-none"
+        placeholder="Describe your responsibilities and achievements..."
+      />
+    </div>
+  );
+
+  const renderProject = (project: any, index: number) => (
+    <div className='mb-6 p-4 border-b border-gray-200 pl-8'>
+      <h3 className="w-full font-semibold mb-4">Project {index + 1}</h3>
+      <div className='flex flex-wrap gap-4 mb-4'>
+        <Input 
+          label="Project name" 
+          name={`projects.${index}.projectName`} 
+        />
+        <Input 
+          label="Role" 
+          name={`projects.${index}.role`} 
+        />
+        <Input 
+          label="Start year" 
+          name={`projects.${index}.startYear`} 
+          type="number" 
+          placeholder="YYYY"
+        />
+        <Input 
+          label="End year" 
+          name={`projects.${index}.endYear`} 
+          type="number" 
+          placeholder="YYYY"
+        />
+      </div>
+      <Input 
+        label="Description" 
+        name={`projects.${index}.description`} 
+        as="textarea"
+        className="w-full min-h-[100px] rounded-md border-2 border-black p-[10px] font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all focus:translate-x-[3px] focus:translate-y-[3px] focus:shadow-none"
+        placeholder="Describe the project, technologies used, and your achievements..."
+      />
+    </div>
+  );
+
+  const renderEducation = (education: any, index: number) => (
+    <div className='mb-6 p-4 border-b border-gray-200 pl-8'>
+      <h3 className="w-full font-semibold mb-4">Education {index + 1}</h3>
+      <div className='flex flex-wrap gap-4 mb-4'>
+        <Input 
+          label="Name of Institute" 
+          name={`education.${index}.instituteName`} 
+          placeholder="University or College name"
+        />
+        <Input 
+          label="Type of Degree" 
+          name={`education.${index}.degreeType`} 
+          placeholder="e.g., Bachelor of Science, Master's"
+        />
+        <Input 
+          label="Year" 
+          name={`education.${index}.year`} 
+          type="number"
+          placeholder="YYYY"
+        />
+        <Input 
+          label="Grade" 
+          name={`education.${index}.grade`} 
+          placeholder="e.g., 3.8 GPA, First Class"
+        />
+      </div>
+    </div>
+  );
 
   return (
     <StrictMode>
@@ -147,40 +293,11 @@ export default function Home() {
                 <div className='mb-10'>
                   <Accordion title='Work Experience'>
                     <div className="pb-14">
-                      {[...Array(experienceCount)].map((_, index) => (
-                        <div key={index} className='mb-6 p-4 border-b border-gray-200'>
-                          <h3 className="w-full font-semibold mb-4">Experience {index + 1}</h3>
-                          <div className='flex flex-wrap gap-4 mb-4'>
-                            <Input 
-                              label="Company name" 
-                              name={`workExperiences.${index}.companyName`} 
-                            />
-                            <Input 
-                              label="Role" 
-                              name={`workExperiences.${index}.role`} 
-                            />
-                            <Input 
-                              label="Start year" 
-                              name={`workExperiences.${index}.startYear`} 
-                              type="number" 
-                              placeholder="YYYY"
-                            />
-                            <Input 
-                              label="End year" 
-                              name={`workExperiences.${index}.endYear`} 
-                              type="number" 
-                              placeholder="YYYY"
-                            />
-                          </div>
-                          <Input 
-                            label="Description" 
-                            name={`workExperiences.${index}.description`} 
-                            as="textarea"
-                            className="w-full min-h-[100px] rounded-md border-2 border-black p-[10px] font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all focus:translate-x-[3px] focus:translate-y-[3px] focus:shadow-none"
-                            placeholder="Describe your responsibilities and achievements..."
-                          />
-                        </div>
-                      ))}
+                      <DraggableSection
+                        items={getValues("workExperiences")}
+                        onReorder={handleExperiencesReorder}
+                        renderItem={renderExperience}
+                      />
                       <Button 
                         type="button" 
                         onClick={addNewExperience}
@@ -192,40 +309,11 @@ export default function Home() {
                   </Accordion>
                   <Accordion title='Projects'>
                     <div className="pb-14">
-                      {[...Array(projectCount)].map((_, index) => (
-                        <div key={index} className='mb-6 p-4 border-b border-gray-200'>
-                          <h3 className="w-full font-semibold mb-4">Project {index + 1}</h3>
-                          <div className='flex flex-wrap gap-4 mb-4'>
-                            <Input 
-                              label="Project name" 
-                              name={`projects.${index}.projectName`} 
-                            />
-                            <Input 
-                              label="Role" 
-                              name={`projects.${index}.role`} 
-                            />
-                            <Input 
-                              label="Start year" 
-                              name={`projects.${index}.startYear`} 
-                              type="number" 
-                              placeholder="YYYY"
-                            />
-                            <Input 
-                              label="End year" 
-                              name={`projects.${index}.endYear`} 
-                              type="number" 
-                              placeholder="YYYY"
-                            />
-                          </div>
-                          <Input 
-                            label="Description" 
-                            name={`projects.${index}.description`} 
-                            as="textarea"
-                            className="w-full min-h-[100px] rounded-md border-2 border-black p-[10px] font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all focus:translate-x-[3px] focus:translate-y-[3px] focus:shadow-none"
-                            placeholder="Describe the project, technologies used, and your achievements..."
-                          />
-                        </div>
-                      ))}
+                      <DraggableSection
+                        items={getValues("projects")}
+                        onReorder={handleProjectsReorder}
+                        renderItem={renderProject}
+                      />
                       <Button 
                         type="button" 
                         onClick={addNewProject}
@@ -237,34 +325,11 @@ export default function Home() {
                   </Accordion>
                   <Accordion title='Education'>
                     <div className="pb-14">
-                      {[...Array(educationCount)].map((_, index) => (
-                        <div key={index} className='mb-6 p-4 border-b border-gray-200'>
-                          <h3 className="w-full font-semibold mb-4">Education {index + 1}</h3>
-                          <div className='flex flex-wrap gap-4 mb-4'>
-                            <Input 
-                              label="Name of Institute" 
-                              name={`education.${index}.instituteName`} 
-                              placeholder="University or College name"
-                            />
-                            <Input 
-                              label="Type of Degree" 
-                              name={`education.${index}.degreeType`} 
-                              placeholder="e.g., Bachelor of Science, Master's"
-                            />
-                            <Input 
-                              label="Year" 
-                              name={`education.${index}.year`} 
-                              type="number"
-                              placeholder="YYYY"
-                            />
-                            <Input 
-                              label="Grade" 
-                              name={`education.${index}.grade`} 
-                              placeholder="e.g., 3.8 GPA, First Class"
-                            />
-                          </div>
-                        </div>
-                      ))}
+                      <DraggableSection
+                        items={getValues("education")}
+                        onReorder={handleEducationReorder}
+                        renderItem={renderEducation}
+                      />
                       <Button 
                         type="button" 
                         onClick={addNewEducation}
