@@ -1,0 +1,168 @@
+{
+  "reference": "public/templates/2025-template_bullet.docx",
+  "sha256": "acb7d106b353c2910561e93789a41682536b868bc59c2d885c9aeb5de236ebe4",
+  "parts": [
+    {
+      "path": "[Content_Types].xml",
+      "size": 2362,
+      "sha256": "2312585784b6452f0860b1fc079a33a2a5c9d9af4e742464edc2e86ff92d45c5",
+      "policy": "preserve"
+    },
+    {
+      "path": "_rels/.rels",
+      "size": 737,
+      "sha256": "c30fe099dbcfed4ecc4ae544ccf82f432c8d3bb665e2a301df283738b196d803",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/document.xml",
+      "size": 46120,
+      "sha256": "d882a0e8e825db1dae3440cab580052eea2897852325db130ba6b616e7a4c37b",
+      "policy": "editable"
+    },
+    {
+      "path": "word/_rels/document.xml.rels",
+      "size": 1964,
+      "sha256": "c2aa196a67817c31824b90dc4aa81c7929d3a71dfc5b0a17f38f5da8c2443100",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/footnotes.xml",
+      "size": 3018,
+      "sha256": "4ffcb9e085ad4393e489f6631fd477e6571b8be780664096d9eff48559802567",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/endnotes.xml",
+      "size": 3012,
+      "sha256": "d947630868a83bfab00df90ea11255ff2e68178c58ed461c079f701d52f6c08e",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/theme/theme1.xml",
+      "size": 8391,
+      "sha256": "528355fa158defe686071a1587973c41cdba3057256df13b2f270f0d8f1896fc",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/settings.xml",
+      "size": 4193,
+      "sha256": "d437d5dbb4dce90308e53a5f4dda9e5e73286bf766ca70775822c0c414b3896f",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/item1.xml",
+      "size": 219,
+      "sha256": "5efcaf9ad70d9c29f406ee438f8f428b021a881d2c5afff0e53b00b1f67ae51e",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/itemProps1.xml",
+      "size": 335,
+      "sha256": "d13c7db0d7dfa443f9a351d4e213e7ae687c09dc33b4024b8dda8f0196bed95d",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/item2.xml",
+      "size": 128,
+      "sha256": "fa2fe0496782615cb38c496727e134e55c188321fe32e16345f019e7eef27288",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/itemProps2.xml",
+      "size": 339,
+      "sha256": "9792a6aeb3e88ed66dacb3f651ee3d9de186c709f455f85d8f8c4dbfe50ebbe1",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/item3.xml",
+      "size": 807,
+      "sha256": "83ef50725719341b0375af0ceb9eec179afe8d571b024c3e2a104f59a19dba67",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/itemProps3.xml",
+      "size": 547,
+      "sha256": "c221cab0c629e9d092e346bc60268a78073d8479860e6d9cfccda58a593e5c14",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/item4.xml",
+      "size": 16041,
+      "sha256": "f2d8a82ceb9a55e4c5502c00042fadf7aaa8e21c214cb8f14497d91727338d70",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/itemProps4.xml",
+      "size": 1149,
+      "sha256": "938f030b56d9422d87a0bcc62471cab64eb123735ef84f2371dfe3dcfd588cb7",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/numbering.xml",
+      "size": 5457,
+      "sha256": "bb54195a518c06ad7ba3172345d22b3b2467eab4da053bf531e32d08909ba823",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/styles.xml",
+      "size": 32343,
+      "sha256": "8af660b1840279c5fa5bfe073baca6af1d88471c195ac5381f12a75beb855cdb",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/webSettings.xml",
+      "size": 1060,
+      "sha256": "246ca94e5cbe02df81802f83f143f829966fdef93bc242fa568e1de2497ecdea",
+      "policy": "preserve"
+    },
+    {
+      "path": "word/fontTable.xml",
+      "size": 2280,
+      "sha256": "1b6f39f1966ae220441ecdd7d29e26d9bdf2f35e46520402585d3a5dbc053dce",
+      "policy": "preserve"
+    },
+    {
+      "path": "docProps/core.xml",
+      "size": 725,
+      "sha256": "deeb6686427a0847db30ab67b2495726269e75734f0cf61a8cecbfef6af99bb5",
+      "policy": "editable"
+    },
+    {
+      "path": "docProps/app.xml",
+      "size": 1355,
+      "sha256": "2892f64e62102d25f0532bdd01e6a84c0a7519a1f0f99fc9def9f6f8fcad4500",
+      "policy": "preserve"
+    },
+    {
+      "path": "docProps/custom.xml",
+      "size": 665,
+      "sha256": "3e080a3b54341fba43682f129c195a63b3c6f1506ed64a0e4aa94b808c66ad2b",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/_rels/item1.xml.rels",
+      "size": 296,
+      "sha256": "80482f86e196171d66001e0e74d1900408a3aaf2463e54005d251b5f2db9a0b0",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/_rels/item2.xml.rels",
+      "size": 296,
+      "sha256": "2a6aee4c8a9714223a3568077411a0c82d11b484b1c9ab93a19d50b99c57baa5",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/_rels/item3.xml.rels",
+      "size": 296,
+      "sha256": "3aa4054f7f463c6d441102c960783aa7f937d6945a0a885b624a66aafaeedb6c",
+      "policy": "preserve"
+    },
+    {
+      "path": "customXml/_rels/item4.xml.rels",
+      "size": 296,
+      "sha256": "3c0d4d955517fe8112c945b1e56f63d5bef3c0005ccb627e40acda432e1cdc1d",
+      "policy": "preserve"
+    }
+  ]
+}
